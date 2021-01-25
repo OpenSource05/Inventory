@@ -11,36 +11,29 @@ using System.Data.SqlClient;
 
 namespace Inventory
 {
-    public partial class ManageUsers : Form
+    public partial class ManageCustomers : Form
     {
-        public ManageUsers()
+        public ManageCustomers()
         {
             InitializeComponent();
         }
-
-
         /** Connection */
         SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\DIMESH\Documents\Inventorydb2.mdf;Integrated Security=True;Connect Timeout=30");
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
-
-
+        
         /** database table to grid view */
         void populate()
         {
             try
             {
                 Con.Open();
-                string Myquery = "select * from UserTbl";
+                string Myquery = "select * from CustomerTbl";
                 SqlDataAdapter da = new SqlDataAdapter(Myquery, Con);
-                SqlCommandBuilder builder  = new SqlCommandBuilder(da);
+                SqlCommandBuilder builder = new SqlCommandBuilder(da);
                 var ds = new DataSet();
                 da.Fill(ds);
-                UsersGv.DataSource = ds.Tables[0];
+                CustomersGV.DataSource = ds.Tables[0];
                 Con.Close();
             }
             catch
@@ -49,17 +42,19 @@ namespace Inventory
             }
         }
 
+        private void label4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
-        /** Value Insert to table - Add */ 
         private void button1_Click(object sender, EventArgs e)
         {
-
             try
             {
                 Con.Open();
-                SqlCommand cmd = new SqlCommand("insert into UserTbl values('" + unameTb.Text + "','" + FnameTb.Text + "','" + PasswordTb.Text + "','" + PhoneTb.Text + "')", Con);
+                SqlCommand cmd = new SqlCommand("insert into CustomerTbl values('" + Customerid.Text + "','" + CustomernameTb.Text + "','" + CustomerPhoneTb.Text + "','" + CustomerPhoneTb.Text + "')", Con);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("User Successfully Added");
+                MessageBox.Show("Customer Successfully Added");
                 Con.Close();
                 populate();
             }
@@ -67,63 +62,49 @@ namespace Inventory
             {
 
             }
-
         }
 
-
-        /** Exit Button */
-        private void label4_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void ManageUsers_Load(object sender, EventArgs e)
+        private void ManageCustomers_Load(object sender, EventArgs e)
         {
             populate();
         }
 
-
-
-        /** Delete row from tabel - Delete */
         private void button3_Click(object sender, EventArgs e)
         {
-            if(PhoneTb.Text =="")
+            if (Customerid.Text == "")
             {
                 MessageBox.Show("Enter the Users Phone Number");
             }
             else
             {
                 Con.Open();
-                String myquery = "delete from UserTbl where UPhone='" + PhoneTb.Text + "';";
+                String myquery = "delete from CustomerTbl where CustId='" + Customerid.Text + "';";
                 SqlCommand cmd = new SqlCommand(myquery, Con);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("User successfully Deleted");
+                MessageBox.Show("Customer successfully Deleted");
                 Con.Close();
                 populate();
             }
 
         }
 
-
-        /** after the grid view row click data shows in input text fields */
-        private void UsersGv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void CustomersGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            unameTb.Text = UsersGv.SelectedRows[0].Cells[0].Value.ToString();
-            FnameTb.Text = UsersGv.SelectedRows[0].Cells[1].Value.ToString();
-            PasswordTb.Text = UsersGv.SelectedRows[0].Cells[2].Value.ToString();
-            PhoneTb.Text = UsersGv.SelectedRows[0].Cells[3].Value.ToString();
+            Customerid.Text = CustomersGV.SelectedRows[0].Cells[0].Value.ToString();
+            CustomernameTb.Text = CustomersGV.SelectedRows[0].Cells[1].Value.ToString();
+           CustomerPhoneTb.Text = CustomersGV.SelectedRows[0].Cells[2].Value.ToString();
         }
 
 
-        /** update table */
+        /** update */
         private void button2_Click(object sender, EventArgs e)
         {
             try
             {
                 Con.Open();
-                SqlCommand cmd = new SqlCommand("update UserTbl set Uname='" + unameTb.Text + "',Ufullname'" + FnameTb.Text + "',Upassword='" + PasswordTb.Text + "' where UPhone='" + PhoneTb.Text + "'", Con);
+                SqlCommand cmd = new SqlCommand("update CustomerTbl set CustName='" + CustomernameTb.Text + "',CustPhone'" + CustomerPhoneTb.Text + "',where CustId='" + Customerid.Text  + "'", Con);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("User Successfully Updated");
+                MessageBox.Show("Customer Successfully Updated");
                 Con.Close();
                 populate();
             }
@@ -131,6 +112,20 @@ namespace Inventory
             {
 
             }
+        }
+
+        private void Customerid_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CustomernameTb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -52,6 +52,30 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageCategories.Designer.cs">
+      <DependentUpon>ManageCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageCustomers.Designer.cs">
+      <DependentUpon>ManageCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageOrders.Designer.cs">
+      <DependentUpon>ManageOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageProducts.Designer.cs">
+      <DependentUpon>ManageProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +86,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageCategories.resx">
+      <DependentUpon>ManageCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageCustomers.resx">
+      <DependentUpon>ManageCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageOrders.resx">
+      <DependentUpon>ManageOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageProducts.resx">
+      <DependentUpon>ManageProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageUsers.resx">
       <DependentUpon>ManageUsers.cs</DependentUpon>

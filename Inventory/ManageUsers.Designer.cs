@@ -30,8 +30,10 @@ namespace Inventory
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.unameTb = new System.Windows.Forms.TextBox();
             this.FnameTb = new System.Windows.Forms.TextBox();
             this.PhoneTb = new System.Windows.Forms.TextBox();
@@ -40,16 +42,17 @@ namespace Inventory
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.UsersGv = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UsersGv)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Crimson;
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
@@ -59,16 +62,17 @@ namespace Inventory
             this.panel1.Size = new System.Drawing.Size(924, 100);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(374, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Manage Users";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(889, -3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 39);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "X";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label2
             // 
@@ -80,6 +84,29 @@ namespace Inventory
             this.label2.Size = new System.Drawing.Size(545, 39);
             this.label2.TabIndex = 0;
             this.label2.Text = "INVENTORY MANAGEMENT SYSTEM";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(890, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(22, 33);
+            this.label3.TabIndex = 0;
+            this.label3.Text = " ";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(374, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(198, 33);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Manage Users";
             // 
             // unameTb
             // 
@@ -149,6 +176,7 @@ namespace Inventory
             this.button2.TabIndex = 4;
             this.button2.Text = "Edit";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -163,6 +191,7 @@ namespace Inventory
             this.button3.TabIndex = 4;
             this.button3.Text = "Delete";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -178,14 +207,16 @@ namespace Inventory
             this.button4.Text = "Home";
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // UsersGv
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(380, 134);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(507, 414);
-            this.dataGridView1.TabIndex = 5;
+            this.UsersGv.BackgroundColor = System.Drawing.Color.White;
+            this.UsersGv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.UsersGv.Location = new System.Drawing.Point(380, 169);
+            this.UsersGv.Name = "UsersGv";
+            this.UsersGv.RowTemplate.Height = 30;
+            this.UsersGv.Size = new System.Drawing.Size(507, 379);
+            this.UsersGv.TabIndex = 5;
+            this.UsersGv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UsersGv_CellContentClick);
             // 
             // panel2
             // 
@@ -196,25 +227,25 @@ namespace Inventory
             this.panel2.Size = new System.Drawing.Size(924, 12);
             this.panel2.TabIndex = 6;
             // 
-            // label3
+            // label5
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(890, 3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(22, 33);
-            this.label3.TabIndex = 0;
-            this.label3.Text = " ";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label5.Location = new System.Drawing.Point(574, 133);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(123, 33);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Users List";
             // 
             // ManageUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(924, 580);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.UsersGv);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -228,9 +259,10 @@ namespace Inventory
             this.Name = "ManageUsers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "  ";
+            this.Load += new System.EventHandler(this.ManageUsers_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UsersGv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,8 +281,10 @@ namespace Inventory
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView UsersGv;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
